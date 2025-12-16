@@ -235,8 +235,8 @@ const productsDatabase = [
 // Filter state management
 let currentFilters = {
     company: 'all',
-    productType: 'all',
-    application: 'all',
+    productTypes: [],
+    applications: [],
     search: ''
 };
 
@@ -246,6 +246,9 @@ let searchInput;
 let resultsSummary;
 let resultsCount;
 let noResults;
+let companySelect;
+let typeCheckboxes;
+let applicationCheckboxes;
 
 // Initialize the products page
 document.addEventListener('DOMContentLoaded', function() {
@@ -254,40 +257,52 @@ document.addEventListener('DOMContentLoaded', function() {
     resultsSummary = document.getElementById('resultsSummary');
     resultsCount = document.getElementById('resultsCount');
     noResults = document.getElementById('noResults');
+    companySelect = document.getElementById('companySelect');
+    typeCheckboxes = document.querySelectorAll('.type-checkbox');
+    applicationCheckboxes = document.querySelectorAll('.application-checkbox');
 
     // Set up event listeners
     setupFilterListeners();
     setupSearchListener();
+    setupMobileToggle();
+    setupViewToggle();
+    setupClearFilters();
 
     // Initial render
     renderProducts();
     updateResultsCount();
 });
 
-// Set up filter button listeners
+// Set up filter listeners
 function setupFilterListeners() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // Company dropdown
+    companySelect.addEventListener('change', function() {
+        currentFilters.company = this.value;
+        renderProducts();
+        updateResultsCount();
+    });
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filterType = this.dataset.type;
-            const filterValue = this.dataset.filter;
-
-            // Update active state for buttons in the same group
-            const group = this.parentElement;
-            group.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            // Update current filters
-            if (filterType === 'company') {
-                currentFilters.company = filterValue;
-            } else if (filterType === 'product-type') {
-                currentFilters.productType = filterValue;
-            } else if (filterType === 'application') {
-                currentFilters.application = filterValue;
+    // Product type checkboxes
+    typeCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                currentFilters.productTypes.push(this.value);
+            } else {
+                currentFilters.productTypes = currentFilters.productTypes.filter(type => type !== this.value);
             }
+            renderProducts();
+            updateResultsCount();
+        });
+    });
 
-            // Re-render products
+    // Application checkboxes
+    applicationCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                currentFilters.applications.push(this.value);
+            } else {
+                currentFilters.applications = currentFilters.applications.filter(app => app !== this.value);
+            }
             renderProducts();
             updateResultsCount();
         });
@@ -303,17 +318,88 @@ function setupSearchListener() {
     });
 }
 
+// Set up additional functionality
+function setupMobileToggle() {
+    const mobileToggle = document.getElementById('mobileFilterToggle');
+    const sidebar = document.querySelector('.filters-sidebar');
+
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    mobileToggle.addEventListener('click', function() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+    });
+
+    overlay.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+}
+
+function setupViewToggle() {
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const tableView = document.getElementById('tableView');
+    const gridView = document.getElementById('gridView');
+
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const view = this.dataset.view;
+
+            // Update active button
+            viewButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Switch views
+            if (view === 'table') {
+                tableView.style.display = 'block';
+                gridView.style.display = 'none';
+            } else {
+                tableView.style.display = 'none';
+                gridView.style.display = 'block';
+                renderGridView();
+            }
+        });
+    });
+}
+
+function setupClearFilters() {
+    const clearBtn = document.getElementById('clearFilters');
+
+    clearBtn.addEventListener('click', function() {
+        // Reset all filters
+        currentFilters.company = 'all';
+        currentFilters.productTypes = [];
+        currentFilters.applications = [];
+        currentFilters.search = '';
+
+        // Reset UI elements
+        companySelect.value = 'all';
+        typeCheckboxes.forEach(checkbox => checkbox.checked = false);
+        applicationCheckboxes.forEach(checkbox => checkbox.checked = false);
+        searchInput.value = '';
+
+        // Re-render
+        renderProducts();
+        updateResultsCount();
+    });
+}
+
 // Filter products based on current filters
 function getFilteredProducts() {
     return productsDatabase.filter(product => {
         // Company filter
         const companyMatch = currentFilters.company === 'all' || product.company === currentFilters.company;
 
-        // Product type filter
-        const typeMatch = currentFilters.productType === 'all' || product.type === currentFilters.productType;
+        // Product type filter (checkbox array)
+        const typeMatch = currentFilters.productTypes.length === 0 ||
+                         currentFilters.productTypes.includes(product.type);
 
-        // Application filter
-        const applicationMatch = currentFilters.application === 'all' || product.application === currentFilters.application;
+        // Application filter (checkbox array)
+        const applicationMatch = currentFilters.applications.length === 0 ||
+                                currentFilters.applications.includes(product.application);
 
         // Search filter
         const searchMatch = currentFilters.search === '' ||
@@ -377,34 +463,46 @@ function updateResultsCount() {
     }
 }
 
-// Reset all filters
-function resetFilters() {
-    currentFilters = {
-        company: 'all',
-        productType: 'all',
-        application: 'all',
-        search: ''
-    };
+// Render grid view
+function renderGridView() {
+    const filteredProducts = getFilteredProducts();
+    const gridView = document.getElementById('gridView');
 
-    // Reset filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.filter === 'all') {
-            btn.classList.add('active');
-        }
-    });
+    if (filteredProducts.length === 0) {
+        gridView.innerHTML = '';
+        return;
+    }
 
-    // Reset search
-    searchInput.value = '';
-
-    // Re-render
-    renderProducts();
-    updateResultsCount();
+    gridView.innerHTML = filteredProducts.map(product => `
+        <div class="product-grid-card">
+            <div class="product-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h3 style="margin: 0; color: #2d3748; font-size: 1.2rem;">${product.name}</h3>
+                <span class="company-badge badge-${product.company}">${product.companyName}</span>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <span class="product-type-badge type-${product.type}">${product.typeName}</span>
+                <span style="margin-left: 0.5rem; color: #4a5568; font-size: 0.9rem;">${product.sample} Sample</span>
+            </div>
+            <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">${product.description}</p>
+            <div style="margin-bottom: 1rem;">
+                <strong style="color: #2d3748; font-size: 0.9rem;">Clinical Use:</strong>
+                <span style="color: #4a5568; font-size: 0.9rem;">${product.applicationName}</span>
+            </div>
+            <div>
+                <strong style="color: #2d3748; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Key Features:</strong>
+                <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.85rem;">
+                    ${product.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
+                    ${product.features.length > 3 ? `<li style="color: #667eea;">+${product.features.length - 3} more</li>` : ''}
+                </ul>
+            </div>
+        </div>
+    `).join('');
 }
 
 // Export functions for potential external use
 window.ProductsFilter = {
-    resetFilters,
     getFilteredProducts,
-    currentFilters
+    currentFilters,
+    renderProducts,
+    renderGridView
 };
