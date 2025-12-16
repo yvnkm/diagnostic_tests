@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Companies Navigator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><i class="fas fa-dna"></i> Diagnostic Navigator</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#companies">Companies</a></li>
+                <li><a href="#comparison">Compare</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Navigate Leading Diagnostic Companies</h1>
+                <p>Explore and compare top precision medicine and diagnostic companies revolutionizing healthcare through advanced testing and AI-powered insights.</p>
+                <div class="hero-buttons">
+                    <a href="#companies" class="btn btn-primary">Explore Companies</a>
+                    <a href="#comparison" class="btn btn-secondary">Compare Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Companies Section -->
+        <section id="companies" class="companies-section">
+            <div class="container">
+                <h2>Featured Companies</h2>
+                <div class="companies-grid">
+                    <!-- Grail -->
+                    <div class="company-card" data-company="grail">
+                        <div class="company-header">
+                            <div class="company-logo">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3>Grail</h3>
+                        </div>
+                        <p class="company-tagline">Early Cancer Detection Pioneer</p>
+                        <p class="company-description">Multi-cancer early detection through the Galleri® Test, a blood-based screening tool for over 50 types of cancer.</p>
+                        <div class="company-specialties">
+                            <span class="specialty">Early Detection</span>
+                            <span class="specialty">Liquid Biopsy</span>
+                            <span class="specialty">AI/ML</span>
+                        </div>
+                        <a href="grail.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Guardant Health -->
+                    <div class="company-card" data-company="guardant">
+                        <div class="company-header">
+                            <div class="company-logo">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Guardant Health</h3>
+                        </div>
+                        <p class="company-tagline">Precision Oncology Leader</p>
+                        <p class="company-description">Comprehensive liquid biopsy platform with Guardant360® for treatment guidance and monitoring cancer progression.</p>
+                        <div class="company-specialties">
+                            <span class="specialty">Liquid Biopsy</span>
+                            <span class="specialty">ctDNA Analysis</span>
+                            <span class="specialty">Treatment Guidance</span>
+                        </div>
+                        <a href="guardant.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Natera -->
+                    <div class="company-card" data-company="natera">
+                        <div class="company-header">
+                            <div class="company-logo">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <h3>Natera</h3>
+                        </div>
+                        <p class="company-tagline">Genetic Testing Specialist</p>
+                        <p class="company-description">Comprehensive genetic testing services including prenatal screening, carrier testing, and oncology monitoring.</p>
+                        <div class="company-specialties">
+                            <span class="specialty">Prenatal Testing</span>
+                            <span class="specialty">Carrier Screening</span>
+                            <span class="specialty">Oncology</span>
+                        </div>
+                        <a href="natera.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Tempus -->
+                    <div class="company-card" data-company="tempus">
+                        <div class="company-header">
+                            <div class="company-logo">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Tempus</h3>
+                        </div>
+                        <p class="company-tagline">AI-Powered Precision Medicine</p>
+                        <p class="company-description">World's largest clinical and molecular database with AI-driven insights for oncology, cardiology, and more.</p>
+                        <div class="company-specialties">
+                            <span class="specialty">AI Analytics</span>
+                            <span class="specialty">Genomic Profiling</span>
+                            <span class="specialty">Clinical Data</span>
+                        </div>
+                        <a href="tempus.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Caris -->
+                    <div class="company-card" data-company="caris">
+                        <div class="company-header">
+                            <div class="company-logo">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Caris Life Sciences</h3>
+                        </div>
+                        <p class="company-tagline">Molecular Profiling Expert</p>
+                        <p class="company-description">Comprehensive molecular testing with whole exome and transcriptome sequencing for precision cancer treatment.</p>
+                        <div class="company-specialties">
+                            <span class="specialty">Molecular Profiling</span>
+                            <span class="specialty">WES/WTS</span>
+                            <span class="specialty">AI Predictions</span>
+                        </div>
+                        <a href="caris.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Comparison Section -->
+        <section id="comparison" class="comparison-preview">
+            <div class="container">
+                <h2>Quick Comparison</h2>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Primary Focus</th>
+                                <th>Key Technology</th>
+                                <th>Main Applications</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Grail</strong></td>
+                                <td>Early Cancer Detection</td>
+                                <td>Multi-Cancer Early Detection (MCED)</td>
+                                <td>Screening, Prevention</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Guardant Health</strong></td>
+                                <td>Precision Oncology</td>
+                                <td>Liquid Biopsy, ctDNA</td>
+                                <td>Treatment Selection, Monitoring</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Natera</strong></td>
+                                <td>Genetic Testing</td>
+                                <td>NIPT, Genetic Screening</td>
+                                <td>Prenatal, Reproductive Health</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tempus</strong></td>
+                                <td>AI-Powered Medicine</td>
+                                <td>Clinical Data + AI</td>
+                                <td>Oncology, Multi-specialty</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Caris</strong></td>
+                                <td>Molecular Profiling</td>
+                                <td>WES/WTS, Protein Analysis</td>
+                                <td>Treatment Planning, Drug Selection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="comparison.html" class="btn btn-primary">Detailed Comparison</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About This Navigator</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>This platform provides comprehensive information about leading diagnostic and precision medicine companies that are revolutionizing healthcare through innovative testing technologies and AI-powered insights.</p>
+                        <p>Our goal is to help healthcare professionals, researchers, and patients understand the landscape of diagnostic companies and their specialized services, from early cancer detection to genetic testing and molecular profiling.</p>
+                    </div>
+                    <div class="about-features">
+                        <h3>What You'll Find Here</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Detailed company profiles and services</li>
+                            <li><i class="fas fa-check"></i> Technology comparisons and capabilities</li>
+                            <li><i class="fas fa-check"></i> Clinical applications and use cases</li>
+                            <li><i class="fas fa-check"></i> Latest innovations and partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Diagnostic Companies Navigator. Educational resource for healthcare professionals.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

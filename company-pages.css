@@ -1,0 +1,627 @@
+/* Company Page Specific Styles */
+
+/* Navigation Brand Link */
+.nav-brand a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-brand a:hover {
+    opacity: 0.9;
+}
+
+/* Company Hero Section */
+.company-hero {
+    padding: 8rem 0 6rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.grail-gradient {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+}
+
+.guardant-gradient {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.natera-gradient {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    color: #2d3748;
+}
+
+.tempus-gradient {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.caris-gradient {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.breadcrumb {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    opacity: 0.8;
+}
+
+.breadcrumb span {
+    margin: 0 0.5rem;
+}
+
+.company-hero-content {
+    text-align: center;
+}
+
+.company-logo-large {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.natera-gradient .company-logo-large {
+    background: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+}
+
+.company-hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.company-tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.company-description-hero {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Products Section */
+.products-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.products-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #2d3748;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.featured-product {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.product-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.product-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.product-title h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.product-type {
+    background: #edf2f7;
+    color: #4a5568;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.product-description {
+    margin-bottom: 2rem;
+}
+
+.product-description p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4a5568;
+}
+
+.product-features,
+.product-limitations {
+    margin-bottom: 2rem;
+}
+
+.product-features h4,
+.product-limitations h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.product-features ul,
+.product-limitations ul {
+    list-style: none;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.product-features li,
+.product-limitations li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+.product-features i {
+    color: #48bb78;
+    font-size: 1.1rem;
+}
+
+.product-limitations i {
+    color: #ed8936;
+    font-size: 1.1rem;
+}
+
+/* Technology Section */
+.technology-section {
+    padding: 6rem 0;
+    background: #f7fafc;
+}
+
+.technology-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #2d3748;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tech-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.tech-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.tech-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.tech-card p {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* Applications Section */
+.applications-section {
+    padding: 6rem 0;
+    background: white;
+}
+
+.applications-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #2d3748;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.application-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-5px);
+}
+
+.app-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.application-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.application-card p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.app-details {
+    background: #f7fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.app-details strong {
+    color: #2d3748;
+}
+
+/* Company Info Section */
+.company-info-section {
+    padding: 6rem 0;
+    background: #f7fafc;
+}
+
+.company-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.info-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+
+.info-content {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.info-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item strong {
+    color: #2d3748;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.advantages-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.advantage {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.advantage i {
+    color: #ed8936;
+    font-size: 1.2rem;
+}
+
+.advantage span {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+/* Related Companies Section */
+.related-companies {
+    padding: 6rem 0;
+    background: white;
+}
+
+.related-companies h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #2d3748;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.related-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    color: inherit;
+    text-decoration: none;
+}
+
+.related-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.guardant-color {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.tempus-color {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.caris-color {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.related-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.related-card p {
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .company-hero {
+        padding: 6rem 0 4rem;
+    }
+
+    .company-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .company-tagline {
+        font-size: 1.2rem;
+    }
+
+    .company-description-hero {
+        font-size: 1.1rem;
+    }
+
+    .hero-stats {
+        gap: 2rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .company-logo-large {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+
+    .product-card {
+        padding: 2rem;
+    }
+
+    .product-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .product-title h3 {
+        font-size: 1.5rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .applications-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .info-card {
+        padding: 2rem;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .technology-section,
+    .applications-section,
+    .company-info-section,
+    .related-companies,
+    .products-section {
+        padding: 4rem 0;
+    }
+
+    .technology-section h2,
+    .applications-section h2,
+    .company-info-section h2,
+    .related-companies h2,
+    .products-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .company-hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .product-card,
+    .tech-card,
+    .application-card,
+    .info-card {
+        padding: 1.5rem;
+    }
+}
