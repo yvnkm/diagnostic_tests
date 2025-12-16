@@ -59,14 +59,27 @@ const productsDatabase = [
         name: "GuardantINFORM™",
         company: "guardant",
         companyName: "Guardant Health",
+        type: "liquid",
+        typeName: "Liquid Biopsy",
+        sample: "Blood",
+        application: "treatment",
+        applicationName: "Treatment Planning",
+        description: "Liquid biopsy test for treatment selection and monitoring with comprehensive genomic profiling",
+        features: ["Liquid biopsy", "Genomic profiling", "Treatment selection", "Disease monitoring"],
+        clinicalUse: "Liquid biopsy for treatment planning and monitoring"
+    },
+    {
+        name: "Guardant360 Tissue NeXT™",
+        company: "guardant",
+        companyName: "Guardant Health",
         type: "tissue",
         typeName: "Tissue CGP",
         sample: "Tissue",
         application: "treatment",
         applicationName: "Treatment Planning",
-        description: "Tissue-based comprehensive genomic profiling test",
-        features: ["Tissue analysis", "Genomic profiling", "Treatment matching", "Biomarker testing"],
-        clinicalUse: "Tissue-based treatment planning and biomarker analysis"
+        description: "Comprehensive tissue-based genomic profiling analyzing 500+ genes for precision oncology",
+        features: ["500+ genes", "Tissue analysis", "Comprehensive profiling", "Treatment matching"],
+        clinicalUse: "Tissue-based comprehensive genomic profiling for treatment selection"
     },
 
     // Natera Products
