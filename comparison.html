@@ -129,6 +129,300 @@
         .natera-highlight { background: #feebc8; color: #c05621; }
         .tempus-highlight { background: #e9d8fd; color: #553c9a; }
         .caris-highlight { background: #fed7e2; color: #b83280; }
+
+        /* Company Selection Styles */
+        .company-selection {
+            padding: 4rem 0;
+            background: #f7fafc;
+        }
+
+        .company-selection h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .company-selection > div > p {
+            text-align: center;
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .company-selector-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .company-option {
+            position: relative;
+        }
+
+        .company-checkbox {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .company-card-selector {
+            display: block;
+            background: white;
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-card-selector:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+
+        .company-checkbox:checked + .company-card-selector {
+            border-color: #667eea;
+            background: #f7fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .company-checkbox:checked + .company-card-selector::after {
+            content: '✓';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .grail-gradient { background: linear-gradient(135deg, #ff6b6b, #ee5a52); }
+        .guardant-gradient { background: linear-gradient(135deg, #4ecdc4, #44a08d); }
+        .natera-gradient { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #667eea; }
+        .tempus-gradient { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .caris-gradient { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .personalis-gradient { background: linear-gradient(135deg, #48bb78, #38a169); }
+        .veracyte-gradient { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+
+        .company-card-selector h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .company-card-selector p {
+            color: #4a5568;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .selection-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .selection-controls .btn {
+            min-width: 140px;
+        }
+
+        /* Comparison Controls */
+        .comparison-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .view-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-toggle {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #4a5568;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .view-toggle:hover,
+        .view-toggle.active {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .view-toggle.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Comparison Cards View */
+        .comparison-cards {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .comparison-category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .comparison-category-card h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .company-comparison-row {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-comparison-item {
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .company-comparison-item h4 {
+            color: #2d3748;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .company-comparison-item p,
+        .company-comparison-item ul {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* No companies message */
+        .no-companies-selected {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #4a5568;
+        }
+
+        .no-companies-selected i {
+            font-size: 4rem;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+
+        .no-companies-selected h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .company-selector-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 1rem;
+            }
+
+            .company-card-selector {
+                padding: 1.5rem 1rem;
+            }
+
+            .company-logo {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .comparison-controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.5rem;
+            }
+
+            .comparison-filters {
+                justify-content: center;
+            }
+
+            .view-controls {
+                justify-content: center;
+            }
+
+            .selection-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .company-comparison-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-selector-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .company-selection h2 {
+                font-size: 2rem;
+            }
+
+            .comparison-filters {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -166,202 +460,136 @@
             </div>
         </section>
 
-        <!-- Detailed Comparison Section -->
-        <section class="detailed-comparison">
+        <!-- Company Selection Section -->
+        <section class="company-selection">
             <div class="container">
-                <div class="comparison-filters">
-                    <button class="filter-btn active">All Categories</button>
-                    <button class="filter-btn">Technology</button>
-                    <button class="filter-btn">Applications</button>
-                    <button class="filter-btn">Market Focus</button>
+                <h2>Select Companies to Compare</h2>
+                <p>Choose 2-7 companies to see a detailed side-by-side comparison</p>
+
+                <div class="company-selector-grid">
+                    <div class="company-option" data-company="grail">
+                        <input type="checkbox" id="company-grail" class="company-checkbox" value="grail" checked>
+                        <label for="company-grail" class="company-card-selector">
+                            <div class="company-logo grail-gradient">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3>Grail</h3>
+                            <p>Early Cancer Detection</p>
+                        </label>
+                    </div>
+
+                    <div class="company-option" data-company="guardant">
+                        <input type="checkbox" id="company-guardant" class="company-checkbox" value="guardant" checked>
+                        <label for="company-guardant" class="company-card-selector">
+                            <div class="company-logo guardant-gradient">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Guardant Health</h3>
+                            <p>Precision Oncology</p>
+                        </label>
+                    </div>
+
+                    <div class="company-option" data-company="natera">
+                        <input type="checkbox" id="company-natera" class="company-checkbox" value="natera" checked>
+                        <label for="company-natera" class="company-card-selector">
+                            <div class="company-logo natera-gradient">
+                                <i class="fas fa-baby"></i>
+                            </div>
+                            <h3>Natera</h3>
+                            <p>Genetic Testing</p>
+                        </label>
+                    </div>
+
+                    <div class="company-option" data-company="tempus">
+                        <input type="checkbox" id="company-tempus" class="company-checkbox" value="tempus">
+                        <label for="company-tempus" class="company-card-selector">
+                            <div class="company-logo tempus-gradient">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Tempus</h3>
+                            <p>AI-Powered Medicine</p>
+                        </label>
+                    </div>
+
+                    <div class="company-option" data-company="caris">
+                        <input type="checkbox" id="company-caris" class="company-checkbox" value="caris">
+                        <label for="company-caris" class="company-card-selector">
+                            <div class="company-logo caris-gradient">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3>Caris</h3>
+                            <p>Molecular Profiling</p>
+                        </label>
+                    </div>
+
+                    <div class="company-option" data-company="personalis">
+                        <input type="checkbox" id="company-personalis" class="company-checkbox" value="personalis">
+                        <label for="company-personalis" class="company-card-selector">
+                            <div class="company-logo personalis-gradient">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h3>Personalis</h3>
+                            <p>Cancer Genomics</p>
+                        </label>
+                    </div>
+
+                    <div class="company-option" data-company="veracyte">
+                        <input type="checkbox" id="company-veracyte" class="company-checkbox" value="veracyte">
+                        <label for="company-veracyte" class="company-card-selector">
+                            <div class="company-logo veracyte-gradient">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3>Veracyte</h3>
+                            <p>Multi-Cancer Diagnostics</p>
+                        </label>
+                    </div>
                 </div>
 
-                <div class="comparison-table-wrapper">
-                    <table class="comparison-table-detailed">
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th>Grail</th>
-                                <th>Guardant Health</th>
-                                <th>Natera</th>
-                                <th>Tempus</th>
-                                <th>Caris</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Primary Focus</strong></td>
-                                <td>
-                                    <span class="grail-highlight">Multi-Cancer Early Detection</span>
-                                    <p>Focuses exclusively on early cancer screening through blood-based testing.</p>
-                                </td>
-                                <td>
-                                    <span class="guardant-highlight">Precision Oncology</span>
-                                    <p>Comprehensive liquid biopsy platform for treatment guidance and monitoring.</p>
-                                </td>
-                                <td>
-                                    <span class="natera-highlight">Genetic Testing</span>
-                                    <p>Broad genetic testing services across multiple medical specialties.</p>
-                                </td>
-                                <td>
-                                    <span class="tempus-highlight">AI-Powered Medicine</span>
-                                    <p>Data-driven precision medicine platform with AI analytics.</p>
-                                </td>
-                                <td>
-                                    <span class="caris-highlight">Molecular Profiling</span>
-                                    <p>Comprehensive molecular testing for cancer treatment planning.</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Key Technology</strong></td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Next-gen sequencing</li>
-                                        <li><i class="fas fa-check"></i>Methylation analysis</li>
-                                        <li><i class="fas fa-check"></i>Machine learning</li>
-                                        <li><i class="fas fa-check"></i>MCED technology</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Liquid biopsy</li>
-                                        <li><i class="fas fa-check"></i>ctDNA analysis</li>
-                                        <li><i class="fas fa-check"></i>Digital sequencing</li>
-                                        <li><i class="fas fa-check"></i>Genomic profiling</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>NIPT technology</li>
-                                        <li><i class="fas fa-check"></i>SNP microarrays</li>
-                                        <li><i class="fas fa-check"></i>Cell-free DNA</li>
-                                        <li><i class="fas fa-check"></i>Genetic sequencing</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>AI/ML algorithms</li>
-                                        <li><i class="fas fa-check"></i>Clinical database</li>
-                                        <li><i class="fas fa-check"></i>Genomic sequencing</li>
-                                        <li><i class="fas fa-check"></i>Digital pathology</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>WES/WTS sequencing</li>
-                                        <li><i class="fas fa-check"></i>Protein analysis</li>
-                                        <li><i class="fas fa-check"></i>AI predictions</li>
-                                        <li><i class="fas fa-check"></i>Molecular profiling</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Main Applications</strong></td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Cancer screening</li>
-                                        <li><i class="fas fa-check"></i>Early detection</li>
-                                        <li><i class="fas fa-check"></i>Prevention programs</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Treatment selection</li>
-                                        <li><i class="fas fa-check"></i>Disease monitoring</li>
-                                        <li><i class="fas fa-check"></i>Resistance detection</li>
-                                        <li><i class="fas fa-check"></i>Recurrence tracking</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Prenatal screening</li>
-                                        <li><i class="fas fa-check"></i>Carrier testing</li>
-                                        <li><i class="fas fa-check"></i>Reproductive health</li>
-                                        <li><i class="fas fa-check"></i>Oncology monitoring</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Treatment guidance</li>
-                                        <li><i class="fas fa-check"></i>Clinical trials</li>
-                                        <li><i class="fas fa-check"></i>Research insights</li>
-                                        <li><i class="fas fa-check"></i>Drug development</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-check"></i>Treatment planning</li>
-                                        <li><i class="fas fa-check"></i>Drug selection</li>
-                                        <li><i class="fas fa-check"></i>Biomarker testing</li>
-                                        <li><i class="fas fa-check"></i>Therapy guidance</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Target Population</strong></td>
-                                <td>Adults 50+ at elevated cancer risk</td>
-                                <td>Advanced cancer patients</td>
-                                <td>Pregnant women, couples planning family</td>
-                                <td>Cancer patients, research institutions</td>
-                                <td>Cancer patients needing treatment guidance</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Unique Advantages</strong></td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-star"></i>First-to-market MCED</li>
-                                        <li><i class="fas fa-star"></i>50+ cancer types</li>
-                                        <li><i class="fas fa-star"></i>Tissue of origin</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-star"></i>Liquid biopsy leader</li>
-                                        <li><i class="fas fa-star"></i>FDA approvals</li>
-                                        <li><i class="fas fa-star"></i>Clinical validation</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-star"></i>NIPT pioneer</li>
-                                        <li><i class="fas fa-star"></i>Comprehensive genetics</li>
-                                        <li><i class="fas fa-star"></i>Reproductive focus</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-star"></i>Largest clinical database</li>
-                                        <li><i class="fas fa-star"></i>AI integration</li>
-                                        <li><i class="fas fa-star"></i>Multi-omics platform</li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <ul class="feature-list">
-                                        <li><i class="fas fa-star"></i>Comprehensive profiling</li>
-                                        <li><i class="fas fa-star"></i>WES + WTS</li>
-                                        <li><i class="fas fa-star"></i>Protein analysis</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Market Position</strong></td>
-                                <td>Early detection pioneer</td>
-                                <td>Liquid biopsy market leader</td>
-                                <td>Genetic testing specialist</td>
-                                <td>AI-driven platform leader</td>
-                                <td>Molecular profiling expert</td>
-                            </tr>
-                        </tbody>
+                <div class="selection-controls">
+                    <button class="btn btn-secondary" id="selectAll">Select All</button>
+                    <button class="btn btn-secondary" id="clearAll">Clear All</button>
+                    <button class="btn btn-primary" id="compareSelected">Compare Selected (<span id="selectedCount">3</span>)</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Comparison Section -->
+        <section class="detailed-comparison">
+            <div class="container">
+                <div class="comparison-controls">
+                    <div class="comparison-filters">
+                        <button class="filter-btn active" data-category="all">All Categories</button>
+                        <button class="filter-btn" data-category="focus">Primary Focus</button>
+                        <button class="filter-btn" data-category="technology">Technology</button>
+                        <button class="filter-btn" data-category="applications">Applications</button>
+                        <button class="filter-btn" data-category="market">Market Position</button>
+                    </div>
+                    <div class="view-controls">
+                        <button class="view-toggle active" data-view="table">
+                            <i class="fas fa-table"></i> Table View
+                        </button>
+                        <button class="view-toggle" data-view="cards">
+                            <i class="fas fa-th-large"></i> Card View
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Table View -->
+                <div class="comparison-table-wrapper" id="tableView">
+                    <table class="comparison-table-detailed" id="comparisonTable">
+                        <!-- Dynamic content will be generated here -->
                     </table>
                 </div>
 
-                <div style="margin-top: 4rem; text-align: center;">
-                    <h3 style="margin-bottom: 2rem; color: #2d3748;">Ready to Learn More?</h3>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="grail.html" class="btn btn-primary">Explore Grail</a>
-                        <a href="guardant.html" class="btn btn-secondary">Learn About Guardant</a>
-                        <a href="tempus.html" class="btn btn-secondary">Discover Tempus</a>
-                    </div>
+                <!-- Card View -->
+                <div class="comparison-cards" id="cardView" style="display: none;">
+                    <!-- Dynamic content will be generated here -->
+                </div>
+
+                <div class="no-companies-selected" id="noCompaniesMessage" style="display: none;">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>No companies selected</h3>
+                    <p>Please select at least 2 companies to compare.</p>
                 </div>
             </div>
         </section>
@@ -374,33 +602,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Filter functionality for comparison table
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const tableRows = document.querySelectorAll('.comparison-table-detailed tbody tr');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.textContent.toLowerCase();
-
-                tableRows.forEach(row => {
-                    if (filter === 'all categories') {
-                        row.style.display = '';
-                    } else if (filter === 'technology' && row.cells[0].textContent.toLowerCase().includes('technology')) {
-                        row.style.display = '';
-                    } else if (filter === 'applications' && row.cells[0].textContent.toLowerCase().includes('applications')) {
-                        row.style.display = '';
-                    } else if (filter === 'market focus' && (row.cells[0].textContent.toLowerCase().includes('focus') || row.cells[0].textContent.toLowerCase().includes('position'))) {
-                        row.style.display = '';
-                    } else if (filter !== 'all categories') {
-                        row.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="comparison.js"></script>
 </body>
 </html>
