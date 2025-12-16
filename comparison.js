@@ -187,6 +187,87 @@ const companyData = {
             "FDA approvals"
         ],
         marketPosition: "Multi-cancer diagnostic specialist"
+    },
+    exact: {
+        name: "Exact Sciences",
+        tagline: "Colorectal Cancer Screening",
+        primaryFocus: {
+            title: "Colorectal Cancer Screening",
+            description: "Leading non-invasive stool DNA testing for colorectal cancer screening and early detection."
+        },
+        keyTechnology: [
+            "Stool DNA testing",
+            "Methylation analysis",
+            "Genomic sequencing",
+            "Machine learning"
+        ],
+        mainApplications: [
+            "Colorectal cancer screening",
+            "Cancer prevention",
+            "Risk assessment",
+            "Treatment planning"
+        ],
+        targetPopulation: "Adults 45+ for colorectal cancer screening",
+        uniqueAdvantages: [
+            "Cologuard pioneer",
+            "FDA approved screening",
+            "At-home collection"
+        ],
+        marketPosition: "Colorectal cancer screening leader"
+    },
+    foundation: {
+        name: "Foundation Medicine",
+        tagline: "Comprehensive Genomic Profiling",
+        primaryFocus: {
+            title: "Comprehensive Genomic Profiling",
+            description: "Leading comprehensive genomic profiling for precision cancer treatment decisions."
+        },
+        keyTechnology: [
+            "Next-generation sequencing",
+            "Comprehensive genomic profiling",
+            "Liquid biopsy",
+            "Biomarker testing"
+        ],
+        mainApplications: [
+            "Treatment selection",
+            "Biomarker identification",
+            "Drug development",
+            "Clinical trials"
+        ],
+        targetPopulation: "Cancer patients needing treatment selection",
+        uniqueAdvantages: [
+            "324+ gene analysis",
+            "FDA approved CDx",
+            "Roche partnership"
+        ],
+        marketPosition: "CGP market leader"
+    },
+    freenome: {
+        name: "Freenome",
+        tagline: "AI-Powered Early Detection",
+        primaryFocus: {
+            title: "AI-Powered Multi-Cancer Detection",
+            description: "Multiomics blood-based platform using AI for early cancer detection through immune response analysis."
+        },
+        keyTechnology: [
+            "AI/ML algorithms",
+            "Multiomics analysis",
+            "Immune response profiling",
+            "ctDNA detection"
+        ],
+        mainApplications: [
+            "Early cancer detection",
+            "Cancer screening",
+            "Risk assessment",
+            "Prevention programs"
+        ],
+        targetPopulation: "Average-risk individuals for cancer screening",
+        uniqueAdvantages: [
+            "Multiomics approach",
+            "AI-powered detection",
+            "Immune system analysis"
+        ],
+        marketPosition: "AI-powered early detection specialist"
     }
 };
 

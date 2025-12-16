@@ -83,37 +83,85 @@ document.querySelectorAll('.company-card').forEach(card => {
     });
 });
 
-// Search Functionality (for future enhancement)
-function initSearchFunctionality() {
-    const searchInput = document.getElementById('search-input');
+// Company Filtering and Search Functionality
+function initCompanyFiltering() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const searchInput = document.getElementById('companySearch');
     const companyCards = document.querySelectorAll('.company-card');
+    const visibleCount = document.getElementById('visibleCompanies');
+    const totalCount = document.getElementById('totalCompanies');
 
+    let currentFilter = 'all';
+    let currentSearchTerm = '';
+
+    // Update company count display
+    function updateCompanyCount() {
+        const visibleCards = Array.from(companyCards).filter(card =>
+            card.style.display !== 'none'
+        );
+        if (visibleCount) visibleCount.textContent = visibleCards.length;
+        if (totalCount) totalCount.textContent = companyCards.length;
+    }
+
+    // Filter companies by category
+    function filterCompanies() {
+        companyCards.forEach(card => {
+            const categories = card.dataset.categories ? card.dataset.categories.split(',') : [];
+            const companyName = card.querySelector('h3').textContent.toLowerCase();
+            const description = card.querySelector('.company-description').textContent.toLowerCase();
+            const specialties = Array.from(card.querySelectorAll('.specialty')).map(s => s.textContent.toLowerCase());
+
+            // Check category filter
+            const categoryMatch = currentFilter === 'all' || categories.includes(currentFilter);
+
+            // Check search filter
+            const searchMatch = currentSearchTerm === '' ||
+                               companyName.includes(currentSearchTerm) ||
+                               description.includes(currentSearchTerm) ||
+                               specialties.some(specialty => specialty.includes(currentSearchTerm));
+
+            if (categoryMatch && searchMatch) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeInUp 0.3s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        updateCompanyCount();
+    }
+
+    // Handle filter tab clicks
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            filterTabs.forEach(t => t.classList.remove('active'));
+
+            // Add active class to clicked tab
+            tab.classList.add('active');
+
+            // Update current filter
+            currentFilter = tab.dataset.category;
+
+            // Apply filters
+            filterCompanies();
+        });
+    });
+
+    // Handle search input
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-
-            companyCards.forEach(card => {
-                const companyName = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('.company-description').textContent.toLowerCase();
-                const specialties = Array.from(card.querySelectorAll('.specialty')).map(s => s.textContent.toLowerCase());
-
-                const matches = companyName.includes(searchTerm) ||
-                               description.includes(searchTerm) ||
-                               specialties.some(specialty => specialty.includes(searchTerm));
-
-                if (matches) {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeInUp 0.3s ease forwards';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            currentSearchTerm = e.target.value.toLowerCase();
+            filterCompanies();
         });
     }
+
+    // Initialize count
+    updateCompanyCount();
 }
 
-// Initialize search functionality
-document.addEventListener('DOMContentLoaded', initSearchFunctionality);
+// Initialize filtering functionality
+document.addEventListener('DOMContentLoaded', initCompanyFiltering);
 
 // Lazy Loading for Images (if added later)
 function lazyLoadImages() {

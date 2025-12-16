@@ -337,6 +337,168 @@ const productsDatabase = [
         description: "Genomic classifier for prostate cancer prognosis and treatment decisions",
         features: ["Gene expression", "Risk stratification", "Treatment guidance", "NCCN guidelines"],
         clinicalUse: "Prostate cancer risk assessment and treatment decision support"
+    },
+
+    // Exact Sciences Products
+    {
+        name: "Cologuard®",
+        company: "exact",
+        companyName: "Exact Sciences",
+        type: "mced",
+        typeName: "MCED",
+        sample: "Stool",
+        application: "screening",
+        applicationName: "CRC Screening",
+        description: "Non-invasive stool DNA test for colorectal cancer screening detecting DNA markers and hemoglobin",
+        features: ["10 DNA markers", "Hemoglobin detection", "FDA approved", "At-home collection"],
+        clinicalUse: "Colorectal cancer screening for average-risk individuals 45+"
+    },
+    {
+        name: "Cologuard Plus™",
+        company: "exact",
+        companyName: "Exact Sciences",
+        type: "mced",
+        typeName: "MCED",
+        sample: "Stool",
+        application: "screening",
+        applicationName: "CRC Screening",
+        description: "Next-generation stool DNA test with 95% sensitivity and 40% fewer false positives than original Cologuard",
+        features: ["Novel biomarkers", "95% sensitivity", "94% specificity", "Reduced false positives"],
+        clinicalUse: "Enhanced colorectal cancer screening with improved accuracy"
+    },
+    {
+        name: "Oncotype DX®",
+        company: "exact",
+        companyName: "Exact Sciences",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Treatment Planning",
+        description: "Multi-cancer genomic test providing recurrence scores and treatment recommendations",
+        features: ["21-gene assay", "Recurrence score", "Treatment guidance", "Multiple cancer types"],
+        clinicalUse: "Breast, colon, and prostate cancer treatment decision support"
+    },
+    {
+        name: "PreTect® HPV-Proofer",
+        company: "exact",
+        companyName: "Exact Sciences",
+        type: "screening",
+        typeName: "HPV Screening",
+        sample: "Cervical",
+        application: "screening",
+        applicationName: "Cervical Screening",
+        description: "HPV mRNA test for cervical cancer screening with high specificity",
+        features: ["mRNA detection", "High specificity", "Reduced false positives", "Cervical screening"],
+        clinicalUse: "Human papillomavirus screening for cervical cancer prevention"
+    },
+    {
+        name: "Cancerguard®",
+        company: "exact",
+        companyName: "Exact Sciences",
+        type: "mced",
+        typeName: "MCED",
+        sample: "Blood",
+        application: "screening",
+        applicationName: "Multi-Cancer Screening",
+        description: "Multi-cancer early detection blood test in development for multiple cancer types",
+        features: ["Multi-cancer detection", "Blood-based", "Early detection", "In development"],
+        clinicalUse: "Multi-cancer early detection and screening (pipeline)"
+    },
+
+    // Foundation Medicine Products
+    {
+        name: "FoundationOne® CDx",
+        company: "foundation",
+        companyName: "Foundation Medicine",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Treatment Selection",
+        description: "Comprehensive genomic profiling test analyzing 324 genes for solid tumor treatment decisions",
+        features: ["324 genes", "FDA approved CDx", "Biomarker testing", "Treatment matching"],
+        clinicalUse: "Comprehensive genomic profiling for precision oncology treatment selection"
+    },
+    {
+        name: "FoundationOne® Liquid CDx",
+        company: "foundation",
+        companyName: "Foundation Medicine",
+        type: "liquid",
+        typeName: "Liquid Biopsy",
+        sample: "Blood",
+        application: "treatment",
+        applicationName: "Treatment Selection",
+        description: "Blood-based comprehensive genomic profiling analyzing 324 genes from circulating tumor DNA",
+        features: ["324 genes", "ctDNA analysis", "Non-invasive", "FDA approved"],
+        clinicalUse: "Liquid biopsy for cancer treatment selection when tissue unavailable"
+    },
+    {
+        name: "FoundationOne® Heme",
+        company: "foundation",
+        companyName: "Foundation Medicine",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Blood/Bone Marrow",
+        application: "treatment",
+        applicationName: "Hematologic Cancers",
+        description: "Comprehensive genomic profiling for hematologic malignancies and sarcomas",
+        features: ["406+ genes", "Hematologic focus", "Rearrangements", "Treatment guidance"],
+        clinicalUse: "Genomic profiling for blood cancers and sarcomas treatment planning"
+    },
+    {
+        name: "FoundationACT®",
+        company: "foundation",
+        companyName: "Foundation Medicine",
+        type: "liquid",
+        typeName: "Liquid Biopsy",
+        sample: "Blood",
+        application: "monitoring",
+        applicationName: "Treatment Monitoring",
+        description: "Circulating tumor DNA monitoring for treatment response and disease progression",
+        features: ["ctDNA tracking", "Treatment monitoring", "Disease progression", "Personalized assay"],
+        clinicalUse: "Circulating tumor DNA monitoring for treatment response assessment"
+    },
+
+    // Freenome Products
+    {
+        name: "SimpleScreen®",
+        company: "freenome",
+        companyName: "Freenome",
+        type: "mced",
+        typeName: "MCED",
+        sample: "Blood",
+        application: "screening",
+        applicationName: "CRC Screening",
+        description: "AI-powered multiomics blood test for colorectal cancer screening using immune response patterns",
+        features: ["Multiomics analysis", "AI/ML algorithms", "Immune response", "Non-invasive"],
+        clinicalUse: "Colorectal cancer screening through blood-based multiomics analysis"
+    },
+    {
+        name: "Multi-Cancer Platform",
+        company: "freenome",
+        companyName: "Freenome",
+        type: "mced",
+        typeName: "MCED",
+        sample: "Blood",
+        application: "screening",
+        applicationName: "Multi-Cancer Screening",
+        description: "Multiomics platform detecting 10+ cancer types through tumor DNA and immune response analysis",
+        features: ["10+ cancer types", "Tumor DNA + immune signals", "Multiomics approach", "Machine learning"],
+        clinicalUse: "Multi-cancer early detection using AI-powered blood analysis"
+    },
+    {
+        name: "Lung Cancer Test",
+        company: "freenome",
+        companyName: "Freenome",
+        type: "screening",
+        typeName: "Risk Assessment",
+        sample: "Blood",
+        application: "screening",
+        applicationName: "Lung Cancer Screening",
+        description: "Blood-based lung cancer screening test for high-risk populations using multiomics analysis",
+        features: ["Lung cancer focus", "High-risk populations", "Blood-based", "Multiomics platform"],
+        clinicalUse: "Lung cancer screening for current and former smokers"
     }
 ];
 

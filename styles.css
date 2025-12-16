@@ -159,12 +159,95 @@ body {
     background: white;
 }
 
-.companies-section h2 {
+.companies-header {
     text-align: center;
+    margin-bottom: 3rem;
+}
+
+.companies-header h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: #2d3748;
+}
+
+.companies-header p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Company Filters */
+.company-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    color: #4a5568;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-tab:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+}
+
+.filter-tab.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.company-search {
+    position: relative;
+    min-width: 250px;
+}
+
+.company-search i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    font-size: 1rem;
+}
+
+.company-search input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.company-search input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.company-search input::placeholder {
+    color: #a0aec0;
 }
 
 .companies-grid {
@@ -192,9 +275,25 @@ body {
 
 .company-header {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.company-header .company-info {
+    display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+}
+
+.company-status {
+    background: #e6fffa;
+    color: #38a169;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid #9ae6b4;
 }
 
 .company-logo {
@@ -227,6 +326,31 @@ body {
 
 .company-card[data-company="caris"] .company-logo {
     background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.company-card[data-company="personalis"] .company-logo {
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    color: #667eea;
+}
+
+.company-card[data-company="veracyte"] .company-logo {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    color: #667eea;
+}
+
+.company-card[data-company="exact"] .company-logo {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.company-card[data-company="foundation"] .company-logo {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.company-card[data-company="freenome"] .company-logo {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
 }
 
 .company-header h3 {
@@ -264,6 +388,31 @@ body {
     font-weight: 500;
 }
 
+.specialty.early-detection {
+    background: #fed7e2;
+    color: #d53f8c;
+}
+
+.specialty.liquid-biopsy {
+    background: #bee3f8;
+    color: #2b6cb0;
+}
+
+.specialty.genetic-testing {
+    background: #c6f6d5;
+    color: #38a169;
+}
+
+.specialty.ai-platform {
+    background: #e9d8fd;
+    color: #805ad5;
+}
+
+.specialty.molecular {
+    background: #fbb6ce;
+    color: #b83280;
+}
+
 .company-link {
     display: inline-flex;
     align-items: center;
@@ -277,6 +426,44 @@ body {
 .company-link:hover {
     color: #5a67d8;
     transform: translateX(5px);
+}
+
+.company-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.company-products {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Companies Footer */
+.companies-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.companies-stats {
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+.view-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.view-options .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
 }
 
 /* Comparison Section */
@@ -443,6 +630,26 @@ body {
     .comparison-preview h2,
     .about-section h2 {
         font-size: 2rem;
+    }
+
+    .company-filters {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .company-search {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .filter-tabs {
+        justify-content: center;
+    }
+
+    .companies-footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
     }
 }
 

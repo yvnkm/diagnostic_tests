@@ -45,96 +45,278 @@
         <!-- Companies Section -->
         <section id="companies" class="companies-section">
             <div class="container">
-                <h2>Featured Companies</h2>
-                <div class="companies-grid">
+                <div class="companies-header">
+                    <h2>Diagnostic Companies</h2>
+                    <p>Explore leading companies revolutionizing healthcare through precision medicine and advanced diagnostics</p>
+                </div>
+
+                <!-- Company Filters -->
+                <div class="company-filters">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-category="all">All Companies</button>
+                        <button class="filter-tab" data-category="early-detection">Early Detection</button>
+                        <button class="filter-tab" data-category="liquid-biopsy">Liquid Biopsy</button>
+                        <button class="filter-tab" data-category="genetic-testing">Genetic Testing</button>
+                        <button class="filter-tab" data-category="ai-platform">AI Platforms</button>
+                        <button class="filter-tab" data-category="molecular">Molecular Testing</button>
+                    </div>
+                    <div class="company-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="companySearch" placeholder="Search companies...">
+                    </div>
+                </div>
+
+                <!-- Companies Grid -->
+                <div class="companies-grid" id="companiesGrid">
                     <!-- Grail -->
-                    <div class="company-card" data-company="grail">
+                    <div class="company-card" data-company="grail" data-categories="early-detection,liquid-biopsy">
                         <div class="company-header">
-                            <div class="company-logo">
-                                <i class="fas fa-microscope"></i>
+                            <div class="company-info">
+                                <div class="company-logo grail-color">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <h3>Grail</h3>
                             </div>
-                            <h3>Grail</h3>
+                            <span class="company-status">Public</span>
                         </div>
-                        <p class="company-tagline">Early Cancer Detection Pioneer</p>
-                        <p class="company-description">Multi-cancer early detection through the Galleri® Test, a blood-based screening tool for over 50 types of cancer.</p>
+                        <p class="company-tagline">Multi-Cancer Early Detection</p>
+                        <p class="company-description">Galleri® Test screens for 50+ cancer types through blood-based methylation analysis.</p>
                         <div class="company-specialties">
-                            <span class="specialty">Early Detection</span>
-                            <span class="specialty">Liquid Biopsy</span>
-                            <span class="specialty">AI/ML</span>
+                            <span class="specialty early-detection">MCED</span>
+                            <span class="specialty liquid-biopsy">Liquid Biopsy</span>
+                            <span class="specialty">Machine Learning</span>
                         </div>
-                        <a href="grail.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <div class="company-footer">
+                            <a href="grail.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">4 Products</div>
+                        </div>
                     </div>
 
                     <!-- Guardant Health -->
-                    <div class="company-card" data-company="guardant">
+                    <div class="company-card" data-company="guardant" data-categories="liquid-biopsy,molecular">
                         <div class="company-header">
-                            <div class="company-logo">
-                                <i class="fas fa-shield-alt"></i>
+                            <div class="company-info">
+                                <div class="company-logo guardant-color">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Guardant Health</h3>
                             </div>
-                            <h3>Guardant Health</h3>
+                            <span class="company-status">Public</span>
                         </div>
                         <p class="company-tagline">Precision Oncology Leader</p>
-                        <p class="company-description">Comprehensive liquid biopsy platform with Guardant360® for treatment guidance and monitoring cancer progression.</p>
+                        <p class="company-description">Comprehensive liquid biopsy platform for treatment selection and monitoring.</p>
                         <div class="company-specialties">
-                            <span class="specialty">Liquid Biopsy</span>
-                            <span class="specialty">ctDNA Analysis</span>
-                            <span class="specialty">Treatment Guidance</span>
+                            <span class="specialty liquid-biopsy">ctDNA</span>
+                            <span class="specialty molecular">CGP</span>
+                            <span class="specialty">FDA Approved</span>
                         </div>
-                        <a href="guardant.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <div class="company-footer">
+                            <a href="guardant.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">4 Products</div>
+                        </div>
                     </div>
 
                     <!-- Natera -->
-                    <div class="company-card" data-company="natera">
+                    <div class="company-card" data-company="natera" data-categories="genetic-testing,liquid-biopsy">
                         <div class="company-header">
-                            <div class="company-logo">
-                                <i class="fas fa-baby"></i>
+                            <div class="company-info">
+                                <div class="company-logo natera-color">
+                                    <i class="fas fa-baby"></i>
+                                </div>
+                                <h3>Natera</h3>
                             </div>
-                            <h3>Natera</h3>
+                            <span class="company-status">Public</span>
                         </div>
                         <p class="company-tagline">Genetic Testing Specialist</p>
-                        <p class="company-description">Comprehensive genetic testing services including prenatal screening, carrier testing, and oncology monitoring.</p>
+                        <p class="company-description">NIPT, carrier screening, and personalized cancer monitoring solutions.</p>
                         <div class="company-specialties">
-                            <span class="specialty">Prenatal Testing</span>
-                            <span class="specialty">Carrier Screening</span>
-                            <span class="specialty">Oncology</span>
+                            <span class="specialty genetic-testing">NIPT</span>
+                            <span class="specialty">MRD</span>
+                            <span class="specialty">Reproductive Health</span>
                         </div>
-                        <a href="natera.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <div class="company-footer">
+                            <a href="natera.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">4 Products</div>
+                        </div>
                     </div>
 
                     <!-- Tempus -->
-                    <div class="company-card" data-company="tempus">
+                    <div class="company-card" data-company="tempus" data-categories="ai-platform,molecular">
                         <div class="company-header">
-                            <div class="company-logo">
-                                <i class="fas fa-brain"></i>
+                            <div class="company-info">
+                                <div class="company-logo tempus-color">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Tempus</h3>
                             </div>
-                            <h3>Tempus</h3>
+                            <span class="company-status">Public</span>
                         </div>
                         <p class="company-tagline">AI-Powered Precision Medicine</p>
-                        <p class="company-description">World's largest clinical and molecular database with AI-driven insights for oncology, cardiology, and more.</p>
+                        <p class="company-description">World's largest clinical database with AI-driven genomic insights.</p>
                         <div class="company-specialties">
-                            <span class="specialty">AI Analytics</span>
-                            <span class="specialty">Genomic Profiling</span>
-                            <span class="specialty">Clinical Data</span>
+                            <span class="specialty ai-platform">AI/ML</span>
+                            <span class="specialty molecular">CGP</span>
+                            <span class="specialty">Clinical Trials</span>
                         </div>
-                        <a href="tempus.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <div class="company-footer">
+                            <a href="tempus.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">4 Products</div>
+                        </div>
                     </div>
 
                     <!-- Caris -->
-                    <div class="company-card" data-company="caris">
+                    <div class="company-card" data-company="caris" data-categories="molecular,ai-platform">
                         <div class="company-header">
-                            <div class="company-logo">
-                                <i class="fas fa-search"></i>
+                            <div class="company-info">
+                                <div class="company-logo caris-color">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3>Caris Life Sciences</h3>
                             </div>
-                            <h3>Caris Life Sciences</h3>
+                            <span class="company-status">Private</span>
                         </div>
                         <p class="company-tagline">Molecular Profiling Expert</p>
-                        <p class="company-description">Comprehensive molecular testing with whole exome and transcriptome sequencing for precision cancer treatment.</p>
+                        <p class="company-description">Comprehensive WES/WTS analysis with AI-driven treatment recommendations.</p>
                         <div class="company-specialties">
-                            <span class="specialty">Molecular Profiling</span>
-                            <span class="specialty">WES/WTS</span>
-                            <span class="specialty">AI Predictions</span>
+                            <span class="specialty molecular">WES/WTS</span>
+                            <span class="specialty">Protein Analysis</span>
+                            <span class="specialty ai-platform">AI Predictions</span>
                         </div>
-                        <a href="caris.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <div class="company-footer">
+                            <a href="caris.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">4 Products</div>
+                        </div>
+                    </div>
+
+                    <!-- Personalis -->
+                    <div class="company-card" data-company="personalis" data-categories="molecular,ai-platform">
+                        <div class="company-header">
+                            <div class="company-info">
+                                <div class="company-logo personalis-color">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <h3>Personalis</h3>
+                            </div>
+                            <span class="company-status">Public</span>
+                        </div>
+                        <p class="company-tagline">Cancer Genomics Platform</p>
+                        <p class="company-description">Enhanced tumor profiling and immune microenvironment analysis.</p>
+                        <div class="company-specialties">
+                            <span class="specialty molecular">Enhanced Exome</span>
+                            <span class="specialty">Immune Profiling</span>
+                            <span class="specialty">Pharma Services</span>
+                        </div>
+                        <div class="company-footer">
+                            <a href="personalis.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">3 Products</div>
+                        </div>
+                    </div>
+
+                    <!-- Veracyte -->
+                    <div class="company-card" data-company="veracyte" data-categories="molecular,early-detection">
+                        <div class="company-header">
+                            <div class="company-info">
+                                <div class="company-logo veracyte-color">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <h3>Veracyte</h3>
+                            </div>
+                            <span class="company-status">Public</span>
+                        </div>
+                        <p class="company-tagline">Multi-Cancer Diagnostics</p>
+                        <p class="company-description">Specialized molecular tests for thyroid, breast, lung, and bladder cancers.</p>
+                        <div class="company-specialties">
+                            <span class="specialty molecular">Genomic Classifiers</span>
+                            <span class="specialty early-detection">Risk Assessment</span>
+                            <span class="specialty">FDA Approved</span>
+                        </div>
+                        <div class="company-footer">
+                            <a href="veracyte.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">5 Products</div>
+                        </div>
+                    </div>
+
+                    <!-- Exact Sciences -->
+                    <div class="company-card" data-company="exact" data-categories="early-detection,molecular">
+                        <div class="company-header">
+                            <div class="company-info">
+                                <div class="company-logo exact-color">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <h3>Exact Sciences</h3>
+                            </div>
+                            <span class="company-status">Public</span>
+                        </div>
+                        <p class="company-tagline">Colorectal Cancer Screening Pioneer</p>
+                        <p class="company-description">Cologuard and Cologuard Plus stool DNA tests for colorectal cancer screening, plus Oncotype DX for precision oncology.</p>
+                        <div class="company-specialties">
+                            <span class="specialty early-detection">Cologuard</span>
+                            <span class="specialty molecular">Oncotype DX</span>
+                            <span class="specialty">FDA Approved</span>
+                        </div>
+                        <div class="company-footer">
+                            <a href="exact.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">5 Products</div>
+                        </div>
+                    </div>
+
+                    <!-- Foundation Medicine -->
+                    <div class="company-card" data-company="foundation" data-categories="molecular,liquid-biopsy">
+                        <div class="company-header">
+                            <div class="company-info">
+                                <div class="company-logo foundation-color">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <h3>Foundation Medicine</h3>
+                            </div>
+                            <span class="company-status">Public</span>
+                        </div>
+                        <p class="company-tagline">Comprehensive Genomic Profiling Leader</p>
+                        <p class="company-description">FoundationOne CDx tissue and liquid biopsy tests analyze 300+ genes for precision cancer treatment selection.</p>
+                        <div class="company-specialties">
+                            <span class="specialty molecular">CGP</span>
+                            <span class="specialty liquid-biopsy">FoundationOne</span>
+                            <span class="specialty">Roche Group</span>
+                        </div>
+                        <div class="company-footer">
+                            <a href="foundation.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">4 Products</div>
+                        </div>
+                    </div>
+
+                    <!-- Freenome -->
+                    <div class="company-card" data-company="freenome" data-categories="early-detection,ai-platform,liquid-biopsy">
+                        <div class="company-header">
+                            <div class="company-info">
+                                <div class="company-logo freenome-color">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Freenome</h3>
+                            </div>
+                            <span class="company-status">Private</span>
+                        </div>
+                        <p class="company-tagline">AI-Powered Multi-Cancer Detection</p>
+                        <p class="company-description">Multiomics blood-based platform using AI to detect early-stage cancers through immune system responses.</p>
+                        <div class="company-specialties">
+                            <span class="specialty ai-platform">AI/ML</span>
+                            <span class="specialty early-detection">Multi-Cancer</span>
+                            <span class="specialty liquid-biopsy">SimpleScreen</span>
+                        </div>
+                        <div class="company-footer">
+                            <a href="freenome.html" class="company-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <div class="company-products">3 Products</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More / View All -->
+                <div class="companies-footer">
+                    <div class="companies-stats">
+                        <span id="visibleCompanies">10</span> of <span id="totalCompanies">10</span> companies shown
+                    </div>
+                    <div class="view-options">
+                        <a href="products.html" class="btn btn-secondary">View All Products</a>
+                        <a href="comparison.html" class="btn btn-primary">Compare Companies</a>
                     </div>
                 </div>
             </div>
