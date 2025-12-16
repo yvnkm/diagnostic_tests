@@ -56,19 +56,6 @@ const productsDatabase = [
         clinicalUse: "Colorectal cancer screening and early detection"
     },
     {
-        name: "GuardantINFORM™",
-        company: "guardant",
-        companyName: "Guardant Health",
-        type: "liquid",
-        typeName: "Liquid Biopsy",
-        sample: "Blood",
-        application: "treatment",
-        applicationName: "Treatment Planning",
-        description: "Liquid biopsy test for treatment selection and monitoring with comprehensive genomic profiling",
-        features: ["Liquid biopsy", "Genomic profiling", "Treatment selection", "Disease monitoring"],
-        clinicalUse: "Liquid biopsy for treatment planning and monitoring"
-    },
-    {
         name: "Guardant360 Tissue NeXT™",
         company: "guardant",
         companyName: "Guardant Health",
