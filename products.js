@@ -502,12 +502,112 @@ const productsDatabase = [
     }
 ];
 
+// Platforms and Services Database
+const platformsDatabase = [
+    // Guardant Health Platforms
+    {
+        name: "GuardantINFORM™",
+        company: "guardant",
+        companyName: "Guardant Health",
+        type: "data_platform",
+        typeName: "Data Platform",
+        category: "Real-World Evidence",
+        description: "Comprehensive real-world data platform providing insights from liquid biopsy testing to support clinical research and drug development",
+        features: ["Real-world data", "Clinical insights", "Research support", "Drug development"],
+        applications: ["Clinical research", "Pharmaceutical partnerships", "Biomarker discovery", "Treatment outcomes"],
+        clinicalUse: "Real-world evidence generation for precision oncology research"
+    },
+
+    // Tempus Platforms
+    {
+        name: "Tempus Lens",
+        company: "tempus",
+        companyName: "Tempus",
+        type: "ai_platform",
+        typeName: "AI Platform",
+        category: "Clinical Decision Support",
+        description: "AI-powered clinical decision support platform providing treatment recommendations and clinical insights",
+        features: ["AI algorithms", "Treatment recommendations", "Clinical insights", "Decision support"],
+        applications: ["Treatment selection", "Clinical decision making", "Outcome prediction", "Patient stratification"],
+        clinicalUse: "AI-driven clinical decision support for oncology treatment planning"
+    },
+    {
+        name: "Tempus ONE",
+        company: "tempus",
+        companyName: "Tempus",
+        type: "matching_platform",
+        typeName: "Trial Matching",
+        category: "Clinical Trial Matching",
+        description: "Clinical trial matching platform connecting patients with relevant clinical trials based on molecular and clinical data",
+        features: ["Trial matching", "Patient enrollment", "Clinical data integration", "Eligibility screening"],
+        applications: ["Clinical trial enrollment", "Patient recruitment", "Trial optimization", "Drug development"],
+        clinicalUse: "Clinical trial matching and patient enrollment optimization"
+    },
+
+    // Caris Platforms
+    {
+        name: "Caris CodeAI",
+        company: "caris",
+        companyName: "Caris",
+        type: "ai_platform",
+        typeName: "AI Platform",
+        category: "Treatment Insights",
+        description: "AI-powered platform providing personalized treatment insights and clinical recommendations based on molecular profiling",
+        features: ["AI-powered insights", "Treatment recommendations", "Molecular integration", "Personalized medicine"],
+        applications: ["Treatment selection", "Prognosis prediction", "Clinical decision support", "Personalized therapy"],
+        clinicalUse: "AI-driven treatment insights for personalized cancer care"
+    },
+
+    // Foundation Medicine Platforms
+    {
+        name: "FoundationCore™",
+        company: "foundation",
+        companyName: "Foundation Medicine",
+        type: "data_platform",
+        typeName: "Data Platform",
+        category: "Genomic Database",
+        description: "Comprehensive genomic database and analytics platform supporting research and drug development",
+        features: ["Genomic database", "Clinical annotations", "Research tools", "Data analytics"],
+        applications: ["Drug development", "Biomarker research", "Clinical insights", "Pharmaceutical partnerships"],
+        clinicalUse: "Genomic data platform for precision medicine research and development"
+    },
+
+    // Grail Platforms
+    {
+        name: "GRAIL Data Platform",
+        company: "grail",
+        companyName: "Grail",
+        type: "data_platform",
+        typeName: "Data Platform",
+        category: "Early Detection Data",
+        description: "Multi-cancer early detection data platform supporting research and clinical insights",
+        features: ["Multi-cancer data", "Early detection insights", "Research support", "Clinical outcomes"],
+        applications: ["Early detection research", "Biomarker discovery", "Clinical validation", "Population health"],
+        clinicalUse: "Early detection data platform for multi-cancer screening research"
+    },
+
+    // Veracyte Platforms
+    {
+        name: "Veracyte Atlas™",
+        company: "veracyte",
+        companyName: "Veracyte",
+        type: "data_platform",
+        typeName: "Data Platform",
+        category: "Genomic Atlas",
+        description: "Comprehensive genomic atlas platform providing insights across cancer types for research and development",
+        features: ["Genomic atlas", "Multi-cancer insights", "Research tools", "Clinical correlations"],
+        applications: ["Cancer research", "Biomarker validation", "Drug development", "Clinical insights"],
+        clinicalUse: "Genomic atlas platform for multi-cancer research and biomarker development"
+    }
+];
+
 // Filter state management
 let currentFilters = {
     company: 'all',
     productTypes: [],
     applications: [],
-    search: ''
+    search: '',
+    viewType: 'tests' // 'tests' or 'platforms'
 };
 
 // DOM elements
@@ -519,6 +619,9 @@ let noResults;
 let companySelect;
 let typeCheckboxes;
 let applicationCheckboxes;
+let toggleButtons;
+let testsHeader;
+let platformsHeader;
 
 // Initialize the products page
 document.addEventListener('DOMContentLoaded', function() {
@@ -533,6 +636,9 @@ document.addEventListener('DOMContentLoaded', function() {
     companySelect = document.getElementById('companySelect');
     typeCheckboxes = document.querySelectorAll('.type-checkbox');
     applicationCheckboxes = document.querySelectorAll('.application-checkbox');
+    toggleButtons = document.querySelectorAll('.toggle-btn');
+    testsHeader = document.getElementById('testsHeader');
+    platformsHeader = document.getElementById('platformsHeader');
 
     console.log('DOM elements found:', {
         tableBody: !!tableBody,
@@ -549,6 +655,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupMobileToggle();
     setupViewToggle();
     setupClearFilters();
+    setupTypeToggle();
 
     // Initial render
     renderProducts();
@@ -669,27 +776,82 @@ function setupClearFilters() {
     });
 }
 
+function setupTypeToggle() {
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const type = this.dataset.type;
+
+            // Update active button
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            // Update view type
+            currentFilters.viewType = type;
+
+            // Toggle table headers
+            if (type === 'tests') {
+                testsHeader.style.display = '';
+                platformsHeader.style.display = 'none';
+            } else {
+                testsHeader.style.display = 'none';
+                platformsHeader.style.display = '';
+            }
+
+            // Re-render
+            renderProducts();
+            updateResultsCount();
+        });
+    });
+}
+
 // Filter products based on current filters
 function getFilteredProducts() {
-    return productsDatabase.filter(product => {
-        // Company filter
-        const companyMatch = currentFilters.company === 'all' || product.company === currentFilters.company;
+    const database = currentFilters.viewType === 'tests' ? productsDatabase : platformsDatabase;
 
-        // Product type filter (checkbox array)
+    return database.filter(item => {
+        // Company filter
+        const companyMatch = currentFilters.company === 'all' || item.company === currentFilters.company;
+
+        // Product type filter (checkbox array) - for platforms, we can filter by type too
         const typeMatch = currentFilters.productTypes.length === 0 ||
-                         currentFilters.productTypes.includes(product.type);
+                         currentFilters.productTypes.includes(item.type);
 
         // Application filter (checkbox array)
-        const applicationMatch = currentFilters.applications.length === 0 ||
-                                currentFilters.applications.includes(product.application);
+        // For platforms, check both applications array and single application field
+        let applicationMatch;
+        if (currentFilters.viewType === 'platforms') {
+            applicationMatch = currentFilters.applications.length === 0 ||
+                             (item.applications && item.applications.some(app => currentFilters.applications.includes(app)));
+        } else {
+            applicationMatch = currentFilters.applications.length === 0 ||
+                             currentFilters.applications.includes(item.application);
+        }
 
         // Search filter
+        const searchFields = [
+            item.name?.toLowerCase() || '',
+            item.description?.toLowerCase() || '',
+            item.clinicalUse?.toLowerCase() || '',
+            item.companyName?.toLowerCase() || ''
+        ];
+
+        // Add features to search
+        if (item.features) {
+            searchFields.push(...item.features.map(f => f.toLowerCase()));
+        }
+
+        // Add applications to search for platforms
+        if (item.applications) {
+            searchFields.push(...item.applications.map(app => app.toLowerCase()));
+        }
+
+        // Add category to search for platforms
+        if (item.category) {
+            searchFields.push(item.category.toLowerCase());
+        }
+
         const searchMatch = currentFilters.search === '' ||
-            product.name.toLowerCase().includes(currentFilters.search) ||
-            product.description.toLowerCase().includes(currentFilters.search) ||
-            product.features.some(feature => feature.toLowerCase().includes(currentFilters.search)) ||
-            product.clinicalUse.toLowerCase().includes(currentFilters.search) ||
-            product.companyName.toLowerCase().includes(currentFilters.search);
+            searchFields.some(field => field.includes(currentFilters.search));
 
         return companyMatch && typeMatch && applicationMatch && searchMatch;
     });
@@ -698,10 +860,10 @@ function getFilteredProducts() {
 // Render products table
 function renderProducts() {
     console.log('renderProducts() called');
-    const filteredProducts = getFilteredProducts();
-    console.log('Filtered products count:', filteredProducts.length);
+    const filteredItems = getFilteredProducts();
+    console.log('Filtered items count:', filteredItems.length);
 
-    if (filteredProducts.length === 0) {
+    if (filteredItems.length === 0) {
         tableBody.innerHTML = '';
         noResults.style.display = 'block';
         document.querySelector('.products-table-wrapper').style.display = 'none';
@@ -711,76 +873,134 @@ function renderProducts() {
     noResults.style.display = 'none';
     document.querySelector('.products-table-wrapper').style.display = 'block';
 
-    tableBody.innerHTML = filteredProducts.map(product => `
-        <tr data-company="${product.company}" data-type="${product.type}" data-application="${product.application}">
-            <td>
-                <div class="product-name">${product.name}</div>
-                <div class="product-description">${product.description}</div>
-            </td>
-            <td>
-                <span class="company-badge badge-${product.company}">${product.companyName}</span>
-            </td>
-            <td>
-                <span class="product-type-badge type-${product.type}">${product.typeName}</span>
-            </td>
-            <td>${product.sample}</td>
-            <td>${product.applicationName}</td>
-            <td>
-                <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.9rem;">
-                    ${product.features.map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-            </td>
-        </tr>
-    `).join('');
+    if (currentFilters.viewType === 'tests') {
+        tableBody.innerHTML = filteredItems.map(product => `
+            <tr data-company="${product.company}" data-type="${product.type}" data-application="${product.application}">
+                <td>
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-description">${product.description}</div>
+                </td>
+                <td>
+                    <span class="company-badge badge-${product.company}">${product.companyName}</span>
+                </td>
+                <td>
+                    <span class="product-type-badge type-${product.type}">${product.typeName}</span>
+                </td>
+                <td>${product.sample}</td>
+                <td>${product.applicationName}</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.9rem;">
+                        ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                </td>
+            </tr>
+        `).join('');
+    } else {
+        tableBody.innerHTML = filteredItems.map(platform => `
+            <tr data-company="${platform.company}" data-type="${platform.type}">
+                <td>
+                    <div class="product-name">${platform.name}</div>
+                    <div class="product-description">${platform.description}</div>
+                </td>
+                <td>
+                    <span class="company-badge badge-${platform.company}">${platform.companyName}</span>
+                </td>
+                <td>
+                    <span class="product-type-badge type-${platform.type}">${platform.typeName}</span>
+                </td>
+                <td>${platform.category}</td>
+                <td>
+                    <div style="color: #4a5568; font-size: 0.9rem;">
+                        ${platform.applications.join(', ')}
+                    </div>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.9rem;">
+                        ${platform.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                </td>
+            </tr>
+        `).join('');
+    }
 }
 
 // Update results count
 function updateResultsCount() {
-    const filteredProducts = getFilteredProducts();
-    resultsCount.textContent = filteredProducts.length;
+    const filteredItems = getFilteredProducts();
+    resultsCount.textContent = filteredItems.length;
 
-    const total = productsDatabase.length;
-    if (filteredProducts.length === total) {
-        resultsSummary.innerHTML = `Showing <span id="resultsCount">${filteredProducts.length}</span> products`;
+    const database = currentFilters.viewType === 'tests' ? productsDatabase : platformsDatabase;
+    const total = database.length;
+    const itemType = currentFilters.viewType === 'tests' ? 'products' : 'platforms';
+
+    if (filteredItems.length === total) {
+        resultsSummary.innerHTML = `Showing <span id="resultsCount">${filteredItems.length}</span> ${itemType}`;
     } else {
-        resultsSummary.innerHTML = `Showing <span id="resultsCount">${filteredProducts.length}</span> of ${total} products`;
+        resultsSummary.innerHTML = `Showing <span id="resultsCount">${filteredItems.length}</span> of ${total} ${itemType}`;
     }
 }
 
 // Render grid view
 function renderGridView() {
-    const filteredProducts = getFilteredProducts();
+    const filteredItems = getFilteredProducts();
     const gridView = document.getElementById('gridView');
 
-    if (filteredProducts.length === 0) {
+    if (filteredItems.length === 0) {
         gridView.innerHTML = '';
         return;
     }
 
-    gridView.innerHTML = filteredProducts.map(product => `
-        <div class="product-grid-card">
-            <div class="product-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3 style="margin: 0; color: #2d3748; font-size: 1.2rem;">${product.name}</h3>
-                <span class="company-badge badge-${product.company}">${product.companyName}</span>
+    if (currentFilters.viewType === 'tests') {
+        gridView.innerHTML = filteredItems.map(product => `
+            <div class="product-grid-card">
+                <div class="product-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="margin: 0; color: #2d3748; font-size: 1.2rem;">${product.name}</h3>
+                    <span class="company-badge badge-${product.company}">${product.companyName}</span>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <span class="product-type-badge type-${product.type}">${product.typeName}</span>
+                    <span style="margin-left: 0.5rem; color: #4a5568; font-size: 0.9rem;">${product.sample} Sample</span>
+                </div>
+                <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">${product.description}</p>
+                <div style="margin-bottom: 1rem;">
+                    <strong style="color: #2d3748; font-size: 0.9rem;">Clinical Use:</strong>
+                    <span style="color: #4a5568; font-size: 0.9rem;">${product.applicationName}</span>
+                </div>
+                <div>
+                    <strong style="color: #2d3748; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Key Features:</strong>
+                    <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.85rem;">
+                        ${product.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
+                        ${product.features.length > 3 ? `<li style="color: #667eea;">+${product.features.length - 3} more</li>` : ''}
+                    </ul>
+                </div>
             </div>
-            <div style="margin-bottom: 1rem;">
-                <span class="product-type-badge type-${product.type}">${product.typeName}</span>
-                <span style="margin-left: 0.5rem; color: #4a5568; font-size: 0.9rem;">${product.sample} Sample</span>
+        `).join('');
+    } else {
+        gridView.innerHTML = filteredItems.map(platform => `
+            <div class="product-grid-card">
+                <div class="product-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h3 style="margin: 0; color: #2d3748; font-size: 1.2rem;">${platform.name}</h3>
+                    <span class="company-badge badge-${platform.company}">${platform.companyName}</span>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <span class="product-type-badge type-${platform.type}">${platform.typeName}</span>
+                    <span style="margin-left: 0.5rem; color: #4a5568; font-size: 0.9rem;">${platform.category}</span>
+                </div>
+                <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">${platform.description}</p>
+                <div style="margin-bottom: 1rem;">
+                    <strong style="color: #2d3748; font-size: 0.9rem;">Applications:</strong>
+                    <span style="color: #4a5568; font-size: 0.9rem;">${platform.applications.slice(0, 2).join(', ')}${platform.applications.length > 2 ? `, +${platform.applications.length - 2} more` : ''}</span>
+                </div>
+                <div>
+                    <strong style="color: #2d3748; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Key Features:</strong>
+                    <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.85rem;">
+                        ${platform.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
+                        ${platform.features.length > 3 ? `<li style="color: #667eea;">+${platform.features.length - 3} more</li>` : ''}
+                    </ul>
+                </div>
             </div>
-            <p style="color: #4a5568; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">${product.description}</p>
-            <div style="margin-bottom: 1rem;">
-                <strong style="color: #2d3748; font-size: 0.9rem;">Clinical Use:</strong>
-                <span style="color: #4a5568; font-size: 0.9rem;">${product.applicationName}</span>
-            </div>
-            <div>
-                <strong style="color: #2d3748; font-size: 0.9rem; display: block; margin-bottom: 0.5rem;">Key Features:</strong>
-                <ul style="margin: 0; padding-left: 1rem; color: #4a5568; font-size: 0.85rem;">
-                    ${product.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
-                    ${product.features.length > 3 ? `<li style="color: #667eea;">+${product.features.length - 3} more</li>` : ''}
-                </ul>
-            </div>
-        </div>
-    `).join('');
+        `).join('');
+    }
 }
 
 // Export functions for potential external use

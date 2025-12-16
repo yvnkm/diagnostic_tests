@@ -180,6 +180,46 @@
             accent-color: #667eea;
         }
 
+        /* View Type Toggle */
+        .view-type-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a5568;
+            width: 100%;
+            text-align: left;
+        }
+
+        .toggle-btn:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .toggle-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .toggle-btn i {
+            font-size: 1rem;
+            width: 16px;
+        }
+
         /* Mobile Filter Toggle */
         .mobile-filter-toggle {
             display: none;
@@ -344,6 +384,9 @@
         .type-tissue { background: #d6f5d6; color: #276749; }
         .type-screening { background: #fbb6ce; color: #97266d; }
         .type-monitoring { background: #ffd6cc; color: #9c4221; }
+        .type-data_platform { background: #e6fffa; color: #234e52; }
+        .type-ai_platform { background: #fef5e7; color: #975a16; }
+        .type-matching_platform { background: #f0fff4; color: #22543d; }
 
         .product-name {
             font-weight: 600;
@@ -495,8 +538,8 @@
                     <span>/</span>
                     <span>Products</span>
                 </div>
-                <h1>Diagnostic Products Database</h1>
-                <p>Explore and filter diagnostic tests by company, product type, and clinical application.</p>
+                <h1>Diagnostic Products & Platforms</h1>
+                <p>Explore diagnostic tests, platforms, and services by company, type, and clinical application.</p>
             </div>
         </section>
 
@@ -509,6 +552,19 @@
                         <div class="sidebar-header">
                             <h3><i class="fas fa-filter"></i> Filters</h3>
                             <button class="clear-filters-btn" id="clearFilters">Clear All</button>
+                        </div>
+
+                        <!-- View Type Toggle -->
+                        <div class="filter-section">
+                            <h4><i class="fas fa-toggle-on"></i> View Type</h4>
+                            <div class="view-type-toggle">
+                                <button class="toggle-btn active" data-type="tests">
+                                    <i class="fas fa-vial"></i> Diagnostic Tests
+                                </button>
+                                <button class="toggle-btn" data-type="platforms">
+                                    <i class="fas fa-server"></i> Platforms & Services
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Search Bar -->
@@ -621,13 +677,21 @@
                         <!-- Products Table -->
                         <div class="products-table-wrapper" id="tableView">
                             <table class="products-table">
-                                <thead>
-                                    <tr>
+                                <thead id="tableHead">
+                                    <tr id="testsHeader">
                                         <th>Product</th>
                                         <th>Company</th>
                                         <th>Type</th>
                                         <th>Sample</th>
                                         <th>Clinical Application</th>
+                                        <th>Key Features</th>
+                                    </tr>
+                                    <tr id="platformsHeader" style="display: none;">
+                                        <th>Platform</th>
+                                        <th>Company</th>
+                                        <th>Type</th>
+                                        <th>Category</th>
+                                        <th>Applications</th>
                                         <th>Key Features</th>
                                     </tr>
                                 </thead>
