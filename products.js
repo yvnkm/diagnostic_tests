@@ -229,6 +229,114 @@ const productsDatabase = [
         description: "Organoid drug sensitivity testing for personalized treatment",
         features: ["Organoid testing", "Drug sensitivity", "Personalized approach", "Functional testing"],
         clinicalUse: "Functional drug testing for personalized treatment selection"
+    },
+
+    // Personalis Products
+    {
+        name: "NeXT Platform®",
+        company: "personalis",
+        companyName: "Personalis",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Tumor Profiling",
+        description: "Comprehensive tumor profiling platform for precision oncology with enhanced exome coverage",
+        features: ["Enhanced exome", "Tumor profiling", "Biomarker discovery", "Clinical trials"],
+        clinicalUse: "Comprehensive genomic analysis for cancer treatment and research"
+    },
+    {
+        name: "ImmunoID NeXT®",
+        company: "personalis",
+        companyName: "Personalis",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Immune Profiling",
+        description: "Advanced immune profiling platform for tumor microenvironment analysis",
+        features: ["Immune profiling", "TME analysis", "T-cell repertoire", "Neoantigen prediction"],
+        clinicalUse: "Tumor immune microenvironment characterization for immunotherapy"
+    },
+    {
+        name: "ACE Platform®",
+        company: "personalis",
+        companyName: "Personalis",
+        type: "liquid",
+        typeName: "Liquid Biopsy",
+        sample: "Blood",
+        application: "monitoring",
+        applicationName: "ctDNA Analysis",
+        description: "Circulating tumor DNA analysis platform for monitoring disease progression",
+        features: ["ctDNA detection", "Disease monitoring", "Treatment response", "Personalized tracking"],
+        clinicalUse: "Liquid biopsy monitoring for treatment response and disease progression"
+    },
+
+    // Veracyte Products
+    {
+        name: "Afirma® GSC",
+        company: "veracyte",
+        companyName: "Veracyte",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "screening",
+        applicationName: "Thyroid Cancer",
+        description: "Genomic sequencing classifier for thyroid cancer diagnosis and risk assessment",
+        features: ["RNA sequencing", "Machine learning", "Thyroid focused", "Diagnostic clarity"],
+        clinicalUse: "Thyroid nodule assessment and cancer diagnosis"
+    },
+    {
+        name: "Prosigna®",
+        company: "veracyte",
+        companyName: "Veracyte",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Breast Cancer",
+        description: "PAM50-based breast cancer prognostic assay for treatment decision support",
+        features: ["PAM50 genes", "Risk stratification", "Prognosis", "Treatment guidance"],
+        clinicalUse: "Breast cancer prognosis and treatment planning for HR+/HER2- patients"
+    },
+    {
+        name: "Decipher® Bladder",
+        company: "veracyte",
+        companyName: "Veracyte",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Bladder Cancer",
+        description: "Genomic subtyping tool for personalized bladder cancer treatment decisions",
+        features: ["Molecular subtyping", "Treatment selection", "Personalized medicine", "Risk assessment"],
+        clinicalUse: "Bladder cancer molecular subtyping for treatment personalization"
+    },
+    {
+        name: "Percepta® Nasal Swab",
+        company: "veracyte",
+        companyName: "Veracyte",
+        type: "screening",
+        typeName: "Risk Assessment",
+        sample: "Nasal Swab",
+        application: "screening",
+        applicationName: "Lung Cancer Risk",
+        description: "Non-invasive lung cancer risk assessment for patients with lung nodules",
+        features: ["Non-invasive", "Nasal swab", "Risk assessment", "Lung nodules"],
+        clinicalUse: "Lung cancer risk evaluation for patients with suspicious nodules"
+    },
+    {
+        name: "Decipher® Prostate",
+        company: "veracyte",
+        companyName: "Veracyte",
+        type: "cgp",
+        typeName: "CGP",
+        sample: "Tissue",
+        application: "treatment",
+        applicationName: "Prostate Cancer",
+        description: "Genomic classifier for prostate cancer prognosis and treatment decisions",
+        features: ["Gene expression", "Risk stratification", "Treatment guidance", "NCCN guidelines"],
+        clinicalUse: "Prostate cancer risk assessment and treatment decision support"
     }
 ];
 
