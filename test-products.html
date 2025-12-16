@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Products Page</title>
+</head>
+<body>
+    <h1>Testing Products Page</h1>
+    <div id="test-results"></div>
+
+    <script>
+        // Test if products.js loads and initializes correctly
+        setTimeout(() => {
+            const resultsDiv = document.getElementById('test-results');
+
+            // Test 1: Check if global ProductsFilter exists
+            if (typeof window.ProductsFilter !== 'undefined') {
+                resultsDiv.innerHTML += '<p style="color: green;">✓ ProductsFilter object is available</p>';
+            } else {
+                resultsDiv.innerHTML += '<p style="color: red;">✗ ProductsFilter object is missing</p>';
+            }
+
+            // Test 2: Check if productsDatabase exists and has data
+            fetch('products.js')
+                .then(response => response.text())
+                .then(scriptContent => {
+                    if (scriptContent.includes('productsDatabase') && scriptContent.includes('Galleri')) {
+                        resultsDiv.innerHTML += '<p style="color: green;">✓ Products database contains expected data</p>';
+                    } else {
+                        resultsDiv.innerHTML += '<p style="color: red;">✗ Products database missing or incomplete</p>';
+                    }
+
+                    // Test 3: Check for DOM ready event
+                    if (scriptContent.includes('DOMContentLoaded')) {
+                        resultsDiv.innerHTML += '<p style="color: green;">✓ DOM ready listener is present</p>';
+                    } else {
+                        resultsDiv.innerHTML += '<p style="color: red;">✗ DOM ready listener is missing</p>';
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML += '<p style="color: red;">✗ Error loading products.js: ' + error.message + '</p>';
+                });
+        }, 1000);
+    </script>
+    <script src="products.js"></script>
+</body>
+</html>

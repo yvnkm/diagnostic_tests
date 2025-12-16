@@ -522,6 +522,9 @@ let applicationCheckboxes;
 
 // Initialize the products page
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Products page DOMContentLoaded event fired');
+    console.log('Products database length:', productsDatabase.length);
+
     tableBody = document.getElementById('productsTableBody');
     searchInput = document.getElementById('productSearch');
     resultsSummary = document.getElementById('resultsSummary');
@@ -530,6 +533,15 @@ document.addEventListener('DOMContentLoaded', function() {
     companySelect = document.getElementById('companySelect');
     typeCheckboxes = document.querySelectorAll('.type-checkbox');
     applicationCheckboxes = document.querySelectorAll('.application-checkbox');
+
+    console.log('DOM elements found:', {
+        tableBody: !!tableBody,
+        searchInput: !!searchInput,
+        resultsSummary: !!resultsSummary,
+        companySelect: !!companySelect,
+        typeCheckboxesCount: typeCheckboxes.length,
+        applicationCheckboxesCount: applicationCheckboxes.length
+    });
 
     // Set up event listeners
     setupFilterListeners();
@@ -685,7 +697,9 @@ function getFilteredProducts() {
 
 // Render products table
 function renderProducts() {
+    console.log('renderProducts() called');
     const filteredProducts = getFilteredProducts();
+    console.log('Filtered products count:', filteredProducts.length);
 
     if (filteredProducts.length === 0) {
         tableBody.innerHTML = '';
